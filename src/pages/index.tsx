@@ -1,9 +1,8 @@
 import { signIn, signOut, useSession } from "next-auth/react";
-import Head from "next/head";
-import Link from "next/link";
 
 import { api } from "@/utils/api";
 import { useState } from "react";
+import { Header } from "@/components/header";
 
 export default function Home() {
 
@@ -16,6 +15,7 @@ export default function Home() {
       api.todo.getTodosByUser.useQuery(session?.user?.id ?? "");
 
   const { mutate } = api.todo.createTodo.useMutation({
+    
     onSuccess: () => {
       setTitle("");
       setDetails("");
@@ -32,36 +32,53 @@ export default function Home() {
       void ctx.todo.getTodosByUser.invalidate();
     }
   })
+
+  const handleAddTodo = () => {
+    // Check if title or description is not entered
+    if (!title.trim() || !details.trim()) {
+      alert("Please enter both title and description");
+      return;
+    }
+
+    // Submit todo
+    mutate({
+      userId: session?.user.id ?? "",
+      title: title,
+      details: details,
+      done: false
+    });
+  };
   return (
-    <div className="flex grow flex-col">
+    <div>
+      <Header/>
+    <div className="flex flex-col justify-center items-center">
       
-      <div>
+      <div className="flex flex-col">
         <input 
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          className="my-4 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
         />
         <textarea 
           placeholder="Details"
           value={details}
           onChange={(e) => setDetails(e.target.value)}
+          className="my-4 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
         />
         <button
-          onClick={() => mutate({ 
-            userId: session?.user.id ?? "", 
-            title: title, 
-            details: details, 
-            done: false 
-          })}
+          onClick={handleAddTodo}
+          className="bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50"
         >Add Todo</button>
       </div>
       { data?.map((todo) => (
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2 bg-gray-100 p-4 rounded-md mb-2 mt-2">
           <input 
             type="checkbox"
             style={{ zoom: 1.5 }}
             checked={!!todo.done}
+            className="form-checkbox h-6 w-6 text-teal-500 focus:ring-teal-500"
             onChange={() => {
               setDoneMutate({ 
                 id: todo.id,
@@ -69,17 +86,22 @@ export default function Home() {
               })
             }}
         />
-        <p>{ todo.title }</p>
-        <p>{todo.details}</p>
-        <h4>{todo.done ? "Complete":"Incomplete"}</h4>
+        <div className="flex flex-col justify-start">
+      <p className="text-lg font-semibold">{ todo.title }</p>
+      <p className="text-gray-600">{todo.details}</p>
+      <h4 className={todo.done ? "text-green-500":"text-red-500"}>
+        {todo.done ? "Complete":"Incomplete"}
+      </h4>
+    </div>
         <button 
           onClick={() => deleteMutate(todo.id)}
-          style={{color:"red"}}
+          className="text-white bg-red-400 px-4 py-2 rounded-md shadow ml-auto "
         >
           Delete
         </button>
       </div>
     ))}
+    </div>
     </div>
   );
 }
