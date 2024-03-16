@@ -89,7 +89,7 @@ export default function Home() {
         <div className="flex flex-col justify-start">
       <p className="text-lg font-semibold">{ todo.title }</p>
       <p className="text-gray-600">{todo.details}</p>
-      <h4 className={todo.done ? "text-green-500":"text-red-500"}>
+      <h4 className={todo.done ? "text-green-500":"text-red-400"}>
         {todo.done ? "Complete":"Incomplete"}
       </h4>
     </div>
