@@ -73,7 +73,7 @@ export default function Home() {
         >Add Todo</button>
       </div>
       { data?.map((todo) => (
-        <div className="flex items-center gap-2 bg-gray-100 p-4 rounded-md mb-2 mt-2">
+        <div className="flex items-center gap-2 bg-gray-100 p-4 rounded-md mb-2 mt-2" key={todo.id}>
           <input 
             type="checkbox"
             style={{ zoom: 1.5 }}
