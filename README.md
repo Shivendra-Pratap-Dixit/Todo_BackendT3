@@ -11,18 +11,12 @@ If you are not familiar with the different technologies used in this project, pl
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
 - [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
 
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## Here are some Screent Shots are given
+![Screenshot 2024-03-17 094825](https://github.com/Shivendra-Pratap-Dixit/Todo_BackendT3/assets/112815087/93a32214-63a6-46a6-bda3-dee9e44cfcd1)
+Here You can see you can easily add todos and update the status by clicking on check box and delete that todo also with delete button.
 
 ## How do I deploy this?
 
