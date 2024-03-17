@@ -1,4 +1,4 @@
-# Create T3 App
+# T3 App TODOAPP
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
@@ -6,7 +6,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+If you are not familiar with the different technologies used in this project, please refer to the respective docs.
 
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
@@ -17,6 +17,9 @@ If you are not familiar with the different technologies used in this project, pl
 ## Here are some Screent Shots are given
 ![Screenshot 2024-03-17 094825](https://github.com/Shivendra-Pratap-Dixit/Todo_BackendT3/assets/112815087/93a32214-63a6-46a6-bda3-dee9e44cfcd1)
 Here You can see you can easily add todos and update the status by clicking on check box and delete that todo also with delete button.
+
+![Screenshot 2024-03-17 100022](https://github.com/Shivendra-Pratap-Dixit/Todo_BackendT3/assets/112815087/7ba7e370-9e62-4dcc-8bf6-02eb5df99d42)
+
 
 ## How do I deploy this?
 
